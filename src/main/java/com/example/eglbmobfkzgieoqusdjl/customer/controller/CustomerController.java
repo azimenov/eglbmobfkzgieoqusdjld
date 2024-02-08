@@ -18,6 +18,10 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
+    @GetMapping("/greet")
+    public String greeting(){
+        return "hello greetgo";
+    }
     @PostMapping("/createCustomer")
     public ResponseEntity<CustomerResponse> createCustomer(@RequestBody CustomerRequest customerRequest) {
         return customerService.createCustomer(customerRequest);
