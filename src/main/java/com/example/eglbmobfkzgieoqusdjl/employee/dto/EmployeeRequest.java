@@ -12,5 +12,4 @@ public class EmployeeRequest {
     private int year;
     private String firstPhoneNumber;
     private String secondPhoneNumber;
-    private LocalDateTime createdAt;
 }

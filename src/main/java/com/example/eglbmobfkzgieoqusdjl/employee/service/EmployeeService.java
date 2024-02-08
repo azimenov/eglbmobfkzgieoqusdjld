@@ -6,11 +6,14 @@ import com.example.eglbmobfkzgieoqusdjl.employee.model.Employee;
 import com.example.eglbmobfkzgieoqusdjl.employee.repository.EmployeeRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -82,6 +85,10 @@ public class EmployeeService {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    public List<Employee> getWithFilterAndOffset(int limit, int offset){
+        return repository.findAllWithFilter(offset, limit);
     }
 
     private void copy(EmployeeRequest request, Employee employee){
