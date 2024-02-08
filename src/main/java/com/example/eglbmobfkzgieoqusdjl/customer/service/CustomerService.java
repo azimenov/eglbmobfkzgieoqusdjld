@@ -4,12 +4,14 @@ import com.example.eglbmobfkzgieoqusdjl.customer.dto.CustomerRequest;
 import com.example.eglbmobfkzgieoqusdjl.customer.dto.CustomerResponse;
 import com.example.eglbmobfkzgieoqusdjl.customer.model.Customer;
 import com.example.eglbmobfkzgieoqusdjl.customer.repository.CustomerRepository;
+import com.example.eglbmobfkzgieoqusdjl.filter.Filter;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -96,5 +98,9 @@ public class CustomerService {
         if(customerRequest.getYear() != 0){
             customer.setYear(customerRequest.getYear());
         }
+    }
+
+    public List<Customer> getCustomersWithFilter(Filter filter) {
+        return customerRepository.findWithLimitAndOffset(filter.getOffset(), filter.getLimit());
     }
 }
