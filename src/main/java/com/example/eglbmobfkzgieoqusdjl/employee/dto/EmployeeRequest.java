@@ -8,8 +8,15 @@ import java.time.LocalDateTime;
 @Data
 @Builder
 public class EmployeeRequest {
-    private String username;
-    private int year;
-    private String firstPhoneNumber;
-    private String secondPhoneNumber;
+    protected String username;
+    protected int year;
+    protected String firstPhoneNumber;
+    protected String secondPhoneNumber;
+
+    public EmployeeRequest(String username, int year, String firstPhoneNumber, String secondPhoneNumber) {
+        this.username = username;
+        this.year = year;
+        this.firstPhoneNumber = firstPhoneNumber;
+        this.secondPhoneNumber = secondPhoneNumber;
+    }
 }

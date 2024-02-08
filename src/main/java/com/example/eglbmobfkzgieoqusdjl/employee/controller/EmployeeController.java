@@ -1,13 +1,11 @@
 package com.example.eglbmobfkzgieoqusdjl.employee.controller;
 
-import com.example.eglbmobfkzgieoqusdjl.customer.dto.CustomerRequest;
-import com.example.eglbmobfkzgieoqusdjl.customer.dto.CustomerResponse;
-import com.example.eglbmobfkzgieoqusdjl.customer.service.CustomerService;
 import com.example.eglbmobfkzgieoqusdjl.employee.dto.EmployeeRequest;
 import com.example.eglbmobfkzgieoqusdjl.employee.dto.EmployeeResponse;
 import com.example.eglbmobfkzgieoqusdjl.employee.model.Employee;
 import com.example.eglbmobfkzgieoqusdjl.employee.service.EmployeeService;
 import com.example.eglbmobfkzgieoqusdjl.filter.Filter;
+import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +18,14 @@ import java.util.List;
 @AllArgsConstructor
 public class EmployeeController {
     private final EmployeeService service;
+
+    @PostConstruct
+    public void init(){
+        service.create(new EmployeeRequest("margulan", 2005, "+77077146503", "+77077146503"));
+        service.create(new EmployeeRequest("kamila", 2005, "+77077146503", "+77077146503"));
+        service.create(new EmployeeRequest("askar", 2005, "+77077146503", "+77077146503"));
+        service.create(new EmployeeRequest("dias", 2005, "+77077146503", "+77077146503"));
+    }
 
     @PostMapping("/createEmployee")
     public ResponseEntity<EmployeeResponse> createEmployee(@RequestBody EmployeeRequest request) {

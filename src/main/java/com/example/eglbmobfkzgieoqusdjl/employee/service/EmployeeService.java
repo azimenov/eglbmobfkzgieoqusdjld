@@ -6,8 +6,6 @@ import com.example.eglbmobfkzgieoqusdjl.employee.model.Employee;
 import com.example.eglbmobfkzgieoqusdjl.employee.repository.EmployeeRepository;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -38,6 +36,18 @@ public class EmployeeService {
         repository.save(employee);
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    public void create(EmployeeRequest request){
+        Employee employee = Employee.builder()
+                .username(request.getUsername())
+                .firstPhoneNumber(request.getFirstPhoneNumber())
+                .secondPhoneNumber(request.getSecondPhoneNumber())
+                .year(request.getYear())
+                .createdAt(LocalDateTime.now())
+                .build();
+
+        repository.save(employee);
     }
 
     public ResponseEntity<EmployeeResponse> deleteById(ObjectId id) {
