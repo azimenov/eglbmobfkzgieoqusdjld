@@ -32,8 +32,8 @@ public class EmployeeController {
         return service.getById(id);
     }
 
-    @PatchMapping("/updateCustomer/{customerId}")
-    public ResponseEntity<EmployeeResponse> updateCustomer(@RequestBody EmployeeRequest request, @PathVariable ObjectId customerId) {
-        return service.updateCustomer(request, customerId);
+    @PatchMapping("/updateEmployee/{employeeId}")
+    public ResponseEntity<EmployeeResponse> updateCustomer(@RequestBody EmployeeRequest request, @PathVariable ObjectId employeeId) {
+        return service.updateCustomer(request, employeeId);
     }
 }

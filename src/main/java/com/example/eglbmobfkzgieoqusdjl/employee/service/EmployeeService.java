@@ -65,9 +65,9 @@ public class EmployeeService {
         return ResponseEntity.notFound().build();
     }
 
-    public ResponseEntity<EmployeeResponse> updateCustomer(EmployeeRequest request, ObjectId customerId) {
-        if (repository.existsById((customerId))) {
-            Employee employee= repository.getById(customerId);
+    public ResponseEntity<EmployeeResponse> updateCustomer(EmployeeRequest request, ObjectId employeeId) {
+        if (repository.existsById((employeeId))) {
+            Employee employee= repository.getById(employeeId);
 
             copy(request, employee);
 

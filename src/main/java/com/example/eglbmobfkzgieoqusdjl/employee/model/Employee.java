@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Builder
 public class Employee {
     @Id
-    private ObjectId customerId;
+    private ObjectId id;
 
     private String username;
     private int year;
