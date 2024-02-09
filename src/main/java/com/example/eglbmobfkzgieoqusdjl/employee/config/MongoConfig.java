@@ -7,6 +7,7 @@ import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -29,17 +30,21 @@ import static java.util.Collections.singletonList;
 @Configuration
 @EnableMongoRepositories(basePackages = "com.example.eglbmobfkzgieoqusdjl.employee")
 public class MongoConfig extends AbstractMongoClientConfiguration {
+    @Value("spring.data.mongodb.uri")
+    private String mongoUri;
+    @Value("spring.data.mongodb.database")
+    private String database_name;
 
     private final List<Converter<?, ?>> converters = new ArrayList<Converter<?, ?>>();
 
     @Override
     protected String getDatabaseName() {
-        return "employee_database";
+        return database_name;
     }
 
     @Override
     public MongoClient mongoClient() {
-        final ConnectionString connectionString = new ConnectionString("mongodb+srv://root:S3g7LbMO2UEb0MCk@cluster0.9xojkg8.mongodb.net/");
+        final ConnectionString connectionString = new ConnectionString(mongoUri);
         final MongoClientSettings mongoClientSettings = MongoClientSettings.builder()
                 .applyConnectionString(connectionString)
                 .build();
