@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "349e0c18-8284-49f5-b8e4-fefc8744a7ff",
+		"name": "employee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "28953962"
+	},
+	"item": [
+		{
+			"name": "createEmployee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"jimin\",\r\n    \"year\": 2003,\r\n    \"firstPhoneNumber\": \"+77077146503\",\r\n    \"secondPhoneNumber\": \"+77077146503\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee/createEmployee",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"createEmployee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleteEmployeeById",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee/deleteEmployeeById/65c506f4a9975b6c0f676e44",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"deleteEmployeeById",
+						"65c506f4a9975b6c0f676e44"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEmployeeWithFilter",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"offset\": 1, \r\n    \"limit\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee/getEmployeeWithFilter",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"getEmployeeWithFilter"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateEmployeeById",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"naruto\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee/updateEmployee/65c5f48c65c6dc738d07c65c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"updateEmployee",
+						"65c5f48c65c6dc738d07c65c"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getEmployeeById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/employee/getEmployeeById/65c5f48c65c6dc738d07c65c",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"employee",
+						"getEmployeeById",
+						"65c5f48c65c6dc738d07c65c"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
