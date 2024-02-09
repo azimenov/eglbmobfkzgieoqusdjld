@@ -34,13 +34,13 @@ public class CustomerController {
         return customerService.createCustomer(customerRequest);
     }
 
-    @DeleteMapping("/deleteCustomerById")
-    public ResponseEntity<CustomerResponse> deleteCustomer(@RequestParam int id) {
-        return customerService.deleteById(id);
+    @DeleteMapping("/deleteCustomerById/{customerId}")
+    public ResponseEntity<CustomerResponse> deleteCustomer(@PathVariable int customerId) {
+        return customerService.deleteById(customerId);
     }
 
-    @GetMapping("/getCustomerById")
-    public ResponseEntity<CustomerResponse> getCustomer(@RequestParam int id) {
+    @GetMapping("/getCustomerById/{id}")
+    public ResponseEntity<CustomerResponse> getCustomer(@PathVariable int id) {
         return customerService.getById(id);
     }
 

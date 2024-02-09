@@ -24,13 +24,13 @@ public class EmployeeController {
         return service.createEmployee(request);
     }
 
-    @DeleteMapping("/deleteEmployeeById")
-    public ResponseEntity<EmployeeResponse> deleteEmployee(@RequestParam ObjectId id) {
+    @DeleteMapping("/deleteEmployeeById/{id}")
+    public ResponseEntity<EmployeeResponse> deleteEmployee(@PathVariable ObjectId id) {
         return service.deleteById(id);
     }
 
-    @GetMapping("/getEmployeeById")
-    public ResponseEntity<EmployeeResponse> getEmployee(@RequestParam ObjectId id) {
+    @GetMapping("/getEmployeeById/{id}")
+    public ResponseEntity<EmployeeResponse> getEmployee(@PathVariable ObjectId id) {
         return service.getById(id);
     }
 
