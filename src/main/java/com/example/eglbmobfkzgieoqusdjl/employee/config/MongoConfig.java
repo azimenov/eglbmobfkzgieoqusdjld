@@ -30,12 +30,12 @@ import static java.util.Collections.singletonList;
 @Configuration
 @EnableMongoRepositories(basePackages = "com.example.eglbmobfkzgieoqusdjl.employee")
 public class MongoConfig extends AbstractMongoClientConfiguration {
-    @Value("spring.data.mongodb.uri")
-    private String mongoUri;
-    @Value("spring.data.mongodb.database")
-    private String database_name;
 
-    private final List<Converter<?, ?>> converters = new ArrayList<Converter<?, ?>>();
+    @Value("${spring.data.mongodb.uri}")
+    private String mongoUri;
+
+    @Value("${spring.data.mongodb.database}")
+    private String database_name;
 
     @Override
     protected String getDatabaseName() {

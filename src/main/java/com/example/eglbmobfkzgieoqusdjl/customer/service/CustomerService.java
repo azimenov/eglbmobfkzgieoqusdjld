@@ -4,7 +4,9 @@ import com.example.eglbmobfkzgieoqusdjl.customer.dto.CustomerRequest;
 import com.example.eglbmobfkzgieoqusdjl.customer.dto.CustomerResponse;
 import com.example.eglbmobfkzgieoqusdjl.customer.model.Customer;
 import com.example.eglbmobfkzgieoqusdjl.customer.repository.CustomerRepository;
+import com.example.eglbmobfkzgieoqusdjl.employee.dto.EmployeeRequest;
 import com.example.eglbmobfkzgieoqusdjl.filter.Filter;
+import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,6 +19,7 @@ import java.util.Optional;
 @Service
 @AllArgsConstructor
 public class CustomerService {
+
     private final CustomerRepository customerRepository;
 
     public ResponseEntity<CustomerResponse> createCustomer(CustomerRequest customerRequest) {
@@ -85,17 +88,17 @@ public class CustomerService {
         }
     }
 
-    private void copy(CustomerRequest customerRequest, Customer customer){
-        if(customerRequest.getUsername() != null){
+    private void copy(CustomerRequest customerRequest, Customer customer) {
+        if (customerRequest.getUsername() != null) {
             customer.setUsername(customerRequest.getUsername());
         }
-        if(customerRequest.getFirstPhoneNumber() != null){
+        if (customerRequest.getFirstPhoneNumber() != null) {
             customer.setFirstPhoneNumber(customerRequest.getFirstPhoneNumber());
         }
-        if(customerRequest.getSecondPhoneNumber() != null){
+        if (customerRequest.getSecondPhoneNumber() != null) {
             customer.setSecondPhoneNumber(customerRequest.getSecondPhoneNumber());
         }
-        if(customerRequest.getYear() != 0){
+        if (customerRequest.getYear() != 0) {
             customer.setYear(customerRequest.getYear());
         }
     }

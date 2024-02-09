@@ -19,14 +19,6 @@ import java.util.List;
 public class EmployeeController {
     private final EmployeeService service;
 
-    @PostConstruct
-    public void init(){
-        service.create(new EmployeeRequest("margulan", 2005, "+77077146503", "+77077146503"));
-        service.create(new EmployeeRequest("kamila", 2005, "+77077146503", "+77077146503"));
-        service.create(new EmployeeRequest("askar", 2005, "+77077146503", "+77077146503"));
-        service.create(new EmployeeRequest("dias", 2005, "+77077146503", "+77077146503"));
-    }
-
     @PostMapping("/createEmployee")
     public ResponseEntity<EmployeeResponse> createEmployee(@RequestBody EmployeeRequest request) {
         return service.createEmployee(request);

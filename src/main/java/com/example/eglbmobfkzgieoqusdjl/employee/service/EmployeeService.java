@@ -4,6 +4,7 @@ import com.example.eglbmobfkzgieoqusdjl.employee.dto.EmployeeRequest;
 import com.example.eglbmobfkzgieoqusdjl.employee.dto.EmployeeResponse;
 import com.example.eglbmobfkzgieoqusdjl.employee.model.Employee;
 import com.example.eglbmobfkzgieoqusdjl.employee.repository.EmployeeRepository;
+import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.bson.types.ObjectId;
 import org.springframework.http.HttpStatus;
@@ -18,6 +19,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class EmployeeService {
     private final EmployeeRepository repository;
+
 
     public ResponseEntity<EmployeeResponse> createEmployee(EmployeeRequest request) {
         Employee employee = Employee.builder()
