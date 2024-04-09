@@ -5,7 +5,6 @@ import com.example.eglbmobfkzgieoqusdjl.customer.dto.CustomerResponse;
 import com.example.eglbmobfkzgieoqusdjl.customer.model.Customer;
 import com.example.eglbmobfkzgieoqusdjl.customer.service.CustomerService;
 import com.example.eglbmobfkzgieoqusdjl.filter.Filter;
-import jakarta.annotation.PostConstruct;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +15,6 @@ import java.util.List;
 @RequestMapping("/api/v1/customer")
 @AllArgsConstructor
 public class CustomerController {
-    @PostConstruct
-    public void init(){
-        customerService.createCustomer(new CustomerRequest("margulan", "+77077146503", "+77077146503", 2005));
-        customerService.createCustomer(new CustomerRequest("margulan", "+77077146503", "+77077146503", 2005));
-        customerService.createCustomer(new CustomerRequest("margulan", "+77077146503", "+77077146503", 2005));
-        customerService.createCustomer(new CustomerRequest("margulan", "+77077146503", "+77077146503", 2005));
-    }
     private final CustomerService customerService;
 
     @GetMapping("/greet")
